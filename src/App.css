@@ -1,38 +1,175 @@
+/* Fira Mono Font */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap");
+
+:root {
+  --backgroundColor: #dadee1;
+  --colorShadeA: rgb(89, 2, 0);
+  --colorShadeB: rgb(138, 5, 0);
+  --colorShadeC: rgb(194, 59, 35);
+  --colorShadeD: rgb(251, 109, 76);
+  --colorShadeE: rgb(252, 158, 121);
+}
+
+body {
+  background: var(--backgroundColor);
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  font-family: "Fira Mono", monospace;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  text-decoration: underline;
+  margin: 20px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--colorShadeA);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: inherit;
+  margin: 20px 5px 30px 5px;
+}
+
+.main-btn {
+  padding: 1em 2em;
+  border: 2px solid var(--colorShadeA);
+  border-radius: 1em;
+  background: var(--colorShadeE);
+  transform-style: preserve-3d;
+  transition: all 175ms cubic-bezier(0, 0, 1, 1);
+}
+
+button.main-btn::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--colorShadeC);
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.5em 0 0 var(--colorShadeA);
+  transform: translate3d(0, 0.6em, -1em);
+  transition: all 80ms cubic-bezier(0, 0, 1, 1);
+}
+
+/* button.main-btn:hover {
+  background: var(--colorShadeD);
+  transform: translate(0, 0.375em);
+}
+
+button.main-btn:hover::before {
+  transform: translate3d(0, 0.75em, -1em);
+} */
+
+button.main-btn:active {
+  transform: translate(0em, 0.5em);
+}
+
+button.main-btn:active::before {
+  transform: translate3d(0, 0, -1em);
+
+  box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 0 40px;
+  font-size: 20px;
+}
+
+.quote-box {
+  border: 2px solid black;
+}
+
+@media (min-width: 451px) {
+  .quote-box {
+    display: flex;
+    justify-content: center;
+    margin: 30px 180px;
+    padding: 10px 5px;
   }
 }
+
+@media (min-width: 451px) {
+  .quote-box {
+    display: flex;
+    justify-content: center;
+    margin: 10px 180px;
+    padding: 10px 5px;
+  }
+}
+
+@media (max-width: 450px) {
+  h1 {
+    text-align: center;
+  }
+
+  h3 {
+    margin: 0 18px;
+    text-align: center;
+  }
+
+  .quote-box {
+    margin: 30px 25px;
+    padding: 10px 5px;
+  }
+
+  p {
+    padding: 0 10px;
+    font-size: 18px;
+  }
+}
+
+.github h4 {
+  font-size: 16px;
+}
+
+/* .github h4 a {
+  color: var(--colorShadeD);
+} */
+
+.github h4 a {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: #000;
+}
+.github h4 a:after {
+  content: "";
+  background: var(--colorShadeD, 0.25);
+  position: absolute;
+  left: 19px;
+  bottom: -8px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  z-index: -1;
+  transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+}
+
+.github h4 a:hover:after {
+  left: -1px;
+  bottom: -2px;
+  width: 101%;
+  height: 100%;
+}
+
+/* .github h4 a:hover {
+  color: var(--colorShadeC);
+} */
